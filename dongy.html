@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-</head>
-
+<meta charset="UTF-8" />
+<title>Happy Teacher's Day</title>
 <style>
     body {
         margin: 0;
@@ -41,51 +41,36 @@
         color: rgba(6, 9, 40, 0.897);
     }
 
-    /* Hiệu ứng bay chung */
+  
     .balloon, .gift, .heart, .star {
         position: absolute;
         bottom: -150px;
         animation: float 10s linear infinite;
         opacity: 0.9;
         z-index: 3;
+        user-select: none;
+        pointer-events: none;
     }
 
-    /* Bóng bay */
-    .balloon {
-        width: 60px;
-        height: 80px;
-        border-radius: 30px 30px 35px 35px;
-    }
-
-    .balloon::after {
-        content: "";
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        width: 2px;
-        height: 20px;
-        background: #fff;
-    }
-
-    /* Quà */
     .gift {
         font-size: 2em;
         animation-duration: 8s;
     }
 
-    /* Trái tim */
+ 
     .heart {
         font-size: 25px;
         animation-duration: 6s;
     }
 
-    /* Ngôi sao */
+    
     .star {
         font-size: 22px;
         color: #ffcc00;
         text-shadow: 0 0 10px #ffd700, 0 0 20px #ffaa00;
         z-index: 5;
         animation: float 7s linear infinite, sparkle 1s ease-in-out infinite alternate;
+        animation-duration: 7s, 1s;
     }
 
     /* Animation bay lên */
@@ -100,21 +85,22 @@
         100% { transform: scale(1.3); opacity: 1; }
     }
 </style>
-
+</head>
 <body>
 
 <div class="container">
     <div class="gif_container">
-        <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/586296647_690560240783401_3519283413681856350_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFgYRH03bbvRvEhgcAPn7TYrRDHN8vz_batEMc3y_P9tmGHyfGz4mt-bqN0ngh6x66grNUENYLKm5Z1vg1r9KTB&_nc_ohc=z-x1G3uafiYQ7kNvwEObBYn&_nc_oc=Adkp9Qd4B_zFPMGZlJS3DTUyA2OQJD-pf5OrnMyhRssloBt335-LSb3jt1nm6YeRf-4&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=NFZ5KYFlAzCe_8ktsWQmJg&oh=00_Afg56E_CBLPINpXX7gOdROblezQ6GxgpnaqeRZ74XngLRw&oe=6924DDD1">
+        <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/586296647_690560240783401_3519283413681856350_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFgYRH03bbvRvEhgcAPn7TYrRDHN8vz_batEMc3y_P9tmGHyfGz4mt-bqN0ngh6x66grNUENYLKm5Z1vg1r9KTB&_nc_ohc=z-x1G3uafiYQ7kNvwEObBYn&_nc_oc=Adkp9Qd4B_zFPMGZlJS3DTUyA2OQJD-pf5OrnMyhRssloBt335-LSb3jt1nm6YeRf-4&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=NFZ5KYFlAzCe_8ktsWQmJg&oh=00_Afg56E_CBLPINpXX7gOdROblezQ6GxgpnaqeRZ74XngLRw&oe=6924DDD1" alt="Teacher's Day Image">
     </div>
 
     <p class="text">
         <b>Happy Teachers's Day Mr.Nghia Dang!<br>
-Thank you for your patience, kindness, and the passion you bring to every lesson. May your days be filled with joy, good health, and the satisfaction of seeing your students grow and succeed. You are truly appreciated💝💝💝.</p>
+        Thank you for your patience, kindness, and the passion you bring to every lesson. May your days be filled with joy, good health, and the satisfaction of seeing your students grow and succeed. You are truly appreciated💝💝💝.</b>
     </p>
 </div>
 
 <script>
+
     const giftEmojis = ["🎁", "💟", "🧸", "🌷", "🎀"];
     for (let i = 0; i < 10; i++) {
         let gift = document.createElement("div");
@@ -133,8 +119,17 @@ Thank you for your patience, kindness, and the passion you bring to every lesson
         heart.style.animationDuration = (4 + Math.random() * 4) + "s";
         document.body.appendChild(heart);
     }
+
+    const starEmojis = ["✨", "⭐", "🌟"];
+    for (let i = 0; i < 25; i++) {
+        let star = document.createElement("div");
+        star.classList.add("star");
+        star.style.left = Math.random() * window.innerWidth + "px";
+        star.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+        star.style.animationDuration = (5 + Math.random() * 5) + "s, 1s"; // float + sparkle
+        document.body.appendChild(star);
+    }
 </script>
 
 </body>
 </html>
-
